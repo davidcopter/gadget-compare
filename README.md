@@ -16,7 +16,7 @@ Nowadays people start to live their on smart home gadgets much more than ever, w
 **Plus**
 - If you can deploy this application to any cloud provider (aws, azure, google cloud, etc.) wether it's on kubernetes or not.
 
-## Please Notes !!
+## Notes !!
 Consider that you should be able to present your application and all development strategies during interview session so please make sure you come prepared.
 
 wish you best of luck :smile:
