@@ -1,4 +1,4 @@
-# Smart home appliance
+# Gadget Compare Platform
 
 ## Description
 Nowadays people start to live their on smart home gadgets much more than ever, wether they realize it or not. But life isn't easy we have to choose which brand we are going to use, is this one I selected work with another one or not and so on. So we want to solve those problems using thing we know the best, we're going to build web application to compare product with the same type with one another.
