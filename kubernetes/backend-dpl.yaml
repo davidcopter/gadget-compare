@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-dpl
+  labels:
+    apps: backend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: backend
+  template:
+    metadata:
+      labels:
+        app: backend
+    spec:
+      containers:
+        - name: backend
+          image: backend
+          ports:
+            - containerPort: 3000
+          env:
+            - name: NODE_ENV
+              value: production
+            - name: MYSQL_HOST
+              value: db
+            - name: MYSQL_PORT
+              value: "3306"
+            - name: MYSQL_USER
+              valueFrom:
+                secretKeyRef:
+                  name: database-secret
+                  key: database-mysql-user
+            - name: MYSQL_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: database-secret
+                  key: database-mysql-password
+            - name: MYSQL_DATABASE
+              value: gadget-compare
