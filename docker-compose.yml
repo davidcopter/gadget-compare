@@ -19,7 +19,7 @@ services:
     container_name: phpmyadmin
     restart: always
     ports:
-      - '8080:80'
+      - '8080:81'
     environment:
       PMA_HOST: db
 
@@ -40,6 +40,15 @@ services:
       - MYSQL_USER=root
       - MYSQL_PASSWORD=helloworld
       - MYSQL_DATABASE=gadget-compare
+
+  frontend:
+    build: ./frontend
+    container_name: frontend
+    volumes:
+      - ./frontend:/usr/src/app/frontend
+      - /usr/src/app/frontend/node_modules
+    ports:
+      - 80:80
 
 volumes:
   mysql_data:
