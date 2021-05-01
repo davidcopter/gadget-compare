@@ -7,5 +7,6 @@ export interface Product {
   material: string;
   dimension: string;
   weight: number;
+  imageUrl: string;
   createdAt: string;
 }

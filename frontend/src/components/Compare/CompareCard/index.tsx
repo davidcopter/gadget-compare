@@ -4,6 +4,7 @@ import AsyncSelect from 'react-select/async';
 import * as compareAPI from '../../../features/compare/compareAPI';
 import { Product } from '../../../interfaces/prodect.interface';
 import NoProductSelected from '../NoProductSelected';
+import NoImage from './NoImage_300x300.png';
 
 type Props = {
   className?: string;
@@ -42,9 +43,9 @@ export function CompareCard({ className }: Props) {
               {selectedValue.name}
             </h1>
             <img
-              className="object-contain md:object-scale-down"
-              src="https://placeimg.com/500/500/any"
-              alt="ptoduct_image"
+              className="object-fill md:object-scale-down"
+              src={selectedValue.imageUrl ? selectedValue.imageUrl : NoImage}
+              alt={selectedValue.name + ' Image'}
             />
           </div>
           <div className="product_price flex justify-center py-8">
