@@ -20,7 +20,7 @@ export class Product {
   description: string;
 
   @Column()
-  department: string;
+  category: string;
 
   @Column()
   price: string;

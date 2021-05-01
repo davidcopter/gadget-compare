@@ -92,8 +92,8 @@ export function CompareCard({ className }: Props) {
             </div>
             <p className="text-center">{selectedValue.description}</p>
           </div>
-          {/* Department */}
-          <div className="product_department py-4">
+          {/* category */}
+          <div className="product_category py-4">
             <div className="flex justify-center items-center mb-2">
               <div className="flex">
                 <svg
@@ -110,10 +110,10 @@ export function CompareCard({ className }: Props) {
                     d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
                   />
                 </svg>
-                <h1 className="font-medium md:text-xl ml-2">Departmant</h1>
+                <h1 className="font-medium md:text-xl ml-2">Category</h1>
               </div>
             </div>
-            <p className="text-center">{selectedValue.department}</p>
+            <p className="text-center">{selectedValue.category}</p>
           </div>
           {/* Material */}
           <div className="product_material py-4">
