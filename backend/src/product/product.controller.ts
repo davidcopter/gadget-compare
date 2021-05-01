@@ -3,16 +3,17 @@ import {
   Get,
   Post,
   Body,
-  // Patch,
+  Patch,
   Param,
-  // Delete,
+  Delete,
   Query,
 } from '@nestjs/common';
 import { Product } from './entities/product.entity';
 import { ProductService } from './product.service';
 import { CreateProductDto } from './dto/create-product.dto';
 import { ApiTags } from '@nestjs/swagger';
-// import { UpdateProductDto } from './dto/update-product.dto';
+import { UpdateProductDto } from './dto/update-product.dto';
+import { DeleteResult, UpdateResult } from 'typeorm';
 
 @ApiTags('Product')
 @Controller('product')
@@ -34,13 +35,16 @@ export class ProductController {
     return this.productService.findOne(id);
   }
 
-  // @Patch(':id')
-  // update(@Param('id') id: string, @Body() updateProductDto: UpdateProductDto) {
-  //   return this.productService.update(+id, updateProductDto);
-  // }
+  @Patch(':id')
+  update(
+    @Param('id') id: string,
+    @Body() updateProductDto: UpdateProductDto,
+  ): Promise<UpdateResult> {
+    return this.productService.update(id, updateProductDto);
+  }
 
-  // @Delete(':id')
-  // remove(@Param('id') id: string) {
-  //   return this.productService.remove(+id);
-  // }
+  @Delete(':id')
+  remove(@Param('id') id: string): Promise<DeleteResult> {
+    return this.productService.remove(id);
+  }
 }
