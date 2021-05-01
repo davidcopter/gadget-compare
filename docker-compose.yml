@@ -11,15 +11,16 @@ services:
       - mysql_data:/var/lib/mysql
     environment:
       MYSQL_ROOT_PASSWORD: helloworld
+      MYSQL_DATABASE: gadget-compare
 
-  app:
+  phpmyadmin:
     depends_on:
       - db
     image: phpmyadmin/phpmyadmin
     container_name: phpmyadmin
     restart: always
     ports:
-      - '8080:81'
+      - '81:80'
     environment:
       PMA_HOST: db
 
@@ -48,7 +49,7 @@ services:
       - ./frontend:/usr/src/app/frontend
       - /usr/src/app/frontend/node_modules
     ports:
-      - 80:80
+      - '8080:80'
 
 volumes:
   mysql_data:
