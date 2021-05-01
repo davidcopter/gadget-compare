@@ -16,7 +16,7 @@ export class CreateProductDto {
 
   @ApiProperty()
   @IsString()
-  department: string;
+  category: string;
 
   @ApiProperty()
   @IsString()
