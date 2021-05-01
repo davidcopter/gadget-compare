@@ -3,10 +3,12 @@ version: '3.9'
 services:
   db:
     image: mysql:8.0
-    container_name: appsDB
+    container_name: db
     restart: always
     ports:
       - '3306:3306'
+    volumes:
+      - mysql_data:/var/lib/mysql
     environment:
       MYSQL_ROOT_PASSWORD: helloworld
 
@@ -20,3 +22,24 @@ services:
       - '8080:80'
     environment:
       PMA_HOST: db
+
+  backend:
+    build: ./backend
+    container_name: backend
+    volumes:
+      - ./backend:/usr/app/
+      - /usr/app/node_modules
+    ports:
+      - '3000:3000'
+    depends_on:
+      - db
+    environment:
+      - NODE_ENV=development
+      - MYSQL_HOST=db
+      - MYSQL_PORT=3306
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=helloworld
+      - MYSQL_DATABASE=gadget-compare
+
+volumes:
+  mysql_data:
